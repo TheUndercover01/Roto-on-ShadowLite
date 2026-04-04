@@ -10,7 +10,7 @@ import os
 import gymnasium as gym
 
 from . import agents
-from .bounce import BounceAllegroCfg, BounceAllegroEnv, BounceCfg, BounceOrcaCfg, BounceOrcaEnv, BounceShadowEnv
+from .bounce import BounceAllegroCfg, BounceAllegroEnv, BounceCfg, BounceOrcaCfg, BounceOrcaEnv, BounceShadowEnv, BounceShadowLiteEnv, BounceShadowLiteCfg
 
 _AGENTS_DIR = os.path.dirname(agents.__file__)
 
@@ -26,7 +26,7 @@ _SHADOW_VARIANT_FILES = {
     "tac_dynamics": "tac_dynamics.yaml",
 }
 
-_ORCA_ALLEGRO_VARIANT_FILES = {
+_ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES = {
     "default_cfg": "default.yaml",
     "rl_only_pt": "rl_only_pt.yaml",
     "rl_only_ptg": "rl_only_ptg.yaml",
@@ -51,5 +51,6 @@ def _register(gym_id: str, env_cls, cfg_cls, variant_files: dict[str, str], robo
 
 
 _register("Bounce", BounceShadowEnv, BounceCfg, _SHADOW_VARIANT_FILES, "shadow")
-_register("Bounce_Orca", BounceOrcaEnv, BounceOrcaCfg, _ORCA_ALLEGRO_VARIANT_FILES, "orca")
-_register("Bounce_Allegro", BounceAllegroEnv, BounceAllegroCfg, _ORCA_ALLEGRO_VARIANT_FILES, "allegro")
+_register("Bounce_Orca", BounceOrcaEnv, BounceOrcaCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "orca")
+_register("Bounce_Allegro", BounceAllegroEnv, BounceAllegroCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "allegro")
+_register("Bounce_Shadowlite", BounceShadowLiteEnv, BounceShadowLiteCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "shadowlite")

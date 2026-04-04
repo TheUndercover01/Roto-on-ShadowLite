@@ -19,7 +19,7 @@ from multimodal_rl.wrappers.isaaclab_wrapper import IsaacLabWrapper
 
 # Import task modules to register environments
 from roto.tasks import baoding, bounce, find  # noqa: F401
-from roto.tasks.robots import allegro, franka, orca, shadow  # noqa: F401
+from roto.tasks.robots import allegro, franka, orca, shadow, shadowlite  # noqa: F401
 
 
 def resolve_gym_env_id(task: str | None, robot: str | None) -> str:
@@ -42,8 +42,10 @@ def resolve_gym_env_id(task: str | None, robot: str | None) -> str:
             return f"{task}_Orca"
         if r == "allegro":
             return f"{task}_Allegro"
+        if r == "shadowlite":
+            return f"{task}_Shadowlite"
         raise ValueError(
-            f"Unknown robot {robot!r} for task {task}. Use one of: shadow, orca, allegro."
+            f"Unknown robot {robot!r} for task {task}. Use one of: shadow, orca, allegro, shadowlite."
         )
     return task
 

@@ -1,0 +1,1 @@
+change the path in /home/ayush/Desktop/iclr/roto/roto/assets/shadow_hand_lite.py for the asset before runnign

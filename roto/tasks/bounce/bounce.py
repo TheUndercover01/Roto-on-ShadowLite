@@ -27,6 +27,8 @@ from roto.tasks.physics import (
     contact_props,
 )
 from roto.tasks.robots.shadow.shadow import ShadowEnv, ShadowEnvCfg
+from roto.tasks.robots.shadowlite.shadowlite import ShadowLiteEnv, ShadowLiteEnvCfg
+
 
 _BOUNCE_HDR = Path(__file__).resolve().parent.parent.parent / "assets/rooms/stierberg_sunrise_4k.hdr"
 
@@ -100,7 +102,14 @@ class BounceAllegroCfg(BounceTaskCfg, AllegroEnvCfg):
     default_object_pos = (0.1, 0.0, 0.55)
     object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0.1, 0.0, 0.55))
 
-
+@configclass
+class BounceShadowLiteCfg(BounceTaskCfg, ShadowLiteEnvCfg):
+    air_reward_coeff = 0.0
+    fall_height = 0.3          # tune to match your hand height
+    object_y_pos = 0.0         # tune to match palm facing direction
+    object_z_pos = 0.55
+    default_object_pos = (0.1, 0.0, 0.55)   # tune
+    object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0.1, 0.0, 0.55))
 # --- Shared logic ------------------------------------------------------------
 
 
@@ -268,6 +277,18 @@ class BounceAllegroEnv(BounceMixin, AllegroEnv):
     cfg: BounceAllegroCfg
 
     def __init__(self, cfg: BounceAllegroCfg, render_mode: str | None = None, **kwargs):
+        super().__init__(cfg, render_mode, **kwargs)
+        self._init_bounce_tracking()
+
+    def _setup_scene(self):
+        super()._setup_scene()
+        self._bounce_spawn_object_and_hdr()
+
+
+class BounceShadowLiteEnv(BounceMixin, ShadowLiteEnv):
+    cfg: BounceShadowLiteCfg
+
+    def __init__(self, cfg: BounceShadowLiteCfg, render_mode: str | None = None, **kwargs):
         super().__init__(cfg, render_mode, **kwargs)
         self._init_bounce_tracking()
 
