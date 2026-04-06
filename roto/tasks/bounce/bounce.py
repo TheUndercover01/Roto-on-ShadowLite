@@ -105,10 +105,11 @@ class BounceAllegroCfg(BounceTaskCfg, AllegroEnvCfg):
 @configclass
 class BounceShadowLiteCfg(BounceTaskCfg, ShadowLiteEnvCfg):
     air_reward_coeff = 0.0
+    
     fall_height = 0.3          # tune to match your hand height
-    object_y_pos = 0.0         # tune to match palm facing direction
+    object_y_pos = 1.0         # tune to match palm facing direction
     object_z_pos = 0.55
-    default_object_pos = (0.1, 0.0, 0.55)   # tune
+    default_object_pos = (0.23, 0.1, 0.6)   # tune
     object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0.1, 0.0, 0.55))
 # --- Shared logic ------------------------------------------------------------
 

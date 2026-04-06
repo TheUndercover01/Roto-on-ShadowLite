@@ -82,11 +82,14 @@ class ShadowLiteEnv(RotoEnv):
 
     def __init__(self, cfg: ShadowLiteEnvCfg, render_mode: str | None = None, **kwargs):
 
-        super().__init__(cfg, render_mode, **kwargs)
+        
 
+        super().__init__(cfg, render_mode, **kwargs)
+        print("NUM TACTILE BODIES:", self.robot_contact_sensor.data.net_forces_w.shape)
         self.num_tactile_observations = 0
         self.tactile = torch.zeros((self.num_envs, 0), device=self.device)
         self.last_tactile = torch.zeros((self.num_envs, 0), device=self.device)
+        
 
         self.extras["log"] = {
             "tactile_penalty": None,
