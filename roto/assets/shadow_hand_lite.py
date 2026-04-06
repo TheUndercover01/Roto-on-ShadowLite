@@ -27,9 +27,9 @@ from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 
 SHADOW_HAND_LITE_CFG = ArticulationCfg(
     spawn=sim_utils.UrdfFileCfg(
-        asset_path=f"/home/ayush/Desktop/iclr/roto/roto/assets/shadow_lite/sr_hand.urdf", #change path
-        usd_dir=f"/home/ayush/Desktop/iclr/roto/roto/assets/shadow_lite",
-        usd_file_name="sr_hand.usd",
+        asset_path=f"/home/ayush/Desktop/icra/Roto-on-ShadowLite/roto/assets/shadow_lite/sr_hand.urdf", #change path
+        usd_dir=f"/home/ayush/Desktop/icra/Roto-on-ShadowLite/roto/assets/shadow_lite",
+        usd_file_name="sr_hand.urdf",
         scale=(1.0, 1.0, 1.0),
         fix_base=True,
         joint_drive=sim_utils.UrdfConverterCfg.JointDriveCfg(
@@ -40,7 +40,7 @@ SHADOW_HAND_LITE_CFG = ArticulationCfg(
         ),
         visual_material=sim_utils.PreviewSurfaceCfg(diffuse_color=(0.8, 0.2, 0.3)),
         collision_props=sim_utils.CollisionPropertiesCfg(contact_offset=0.005, rest_offset=0.0),
-        activate_contact_sensors=True,
+        activate_contact_sensors=True, #testing by making false; default: True
         rigid_props=sim_utils.RigidBodyPropertiesCfg(
             disable_gravity=True,
             retain_accelerations=True,
