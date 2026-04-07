@@ -10,7 +10,7 @@ import os
 import gymnasium as gym
 
 from . import agents
-from .baoding import BaodingAllegroCfg, BaodingAllegroEnv, BaodingCfg, BaodingOrcaCfg, BaodingOrcaEnv, BaodingShadowEnv
+from .baoding import BaodingAllegroCfg, BaodingAllegroEnv, BaodingCfg, BaodingOrcaCfg, BaodingOrcaEnv, BaodingShadowEnv, BaodingShadowLiteEnv, BaodingShadowLiteCfg
 
 _AGENTS_DIR = os.path.dirname(agents.__file__)
 
@@ -26,7 +26,7 @@ _SHADOW_VARIANT_FILES = {
     "tac_dynamics": "tac_dynamics.yaml",
 }
 
-_ORCA_ALLEGRO_VARIANT_FILES = {
+_ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES = {
     "default_cfg": "default.yaml",
     "rl_only_pt": "rl_only_pt.yaml",
     "forward_dynamics": "forward_dynamics.yaml",
@@ -50,5 +50,6 @@ def _register(gym_id: str, env_cls, cfg_cls, variant_files: dict[str, str], robo
 
 
 _register("Baoding", BaodingShadowEnv, BaodingCfg, _SHADOW_VARIANT_FILES, "shadow")
-_register("Baoding_Orca", BaodingOrcaEnv, BaodingOrcaCfg, _ORCA_ALLEGRO_VARIANT_FILES, "orca")
-_register("Baoding_Allegro", BaodingAllegroEnv, BaodingAllegroCfg, _ORCA_ALLEGRO_VARIANT_FILES, "allegro")
+_register("Baoding_Orca", BaodingOrcaEnv, BaodingOrcaCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "orca")
+_register("Baoding_Allegro", BaodingAllegroEnv, BaodingAllegroCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "allegro")
+_register("Baoding_Shadowlite", BaodingShadowLiteEnv, BaodingShadowLiteCfg, _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES, "shadowlite")

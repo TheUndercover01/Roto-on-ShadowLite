@@ -53,10 +53,18 @@ class ShadowLiteEnvCfg(RotoEnvCfg):
         init_state=ArticulationCfg.InitialStateCfg(
             pos=(0.0, 0.0, hand_height),
             #rot=(0.0, 0.0, -0.7071, 0.7071),
-            rot=(0.0, 0.0, -0.7933, 0.6087), # tilting (-15 degree) forward.
+            rot=(0.0, 0.0, -0.7933, 0.6087), 
             joint_pos={".*": 0.0},
         )
     )
+
+    #=========================================BOUNCE SHADOWLITE =====================================================
+    # tilting (-15 degree) forward. # finalized angle for hand rot=(0.0, 0.0, -0.7933, 0.6087)
+    # fall_height = 0.3          
+    # object_y_pos = -0.28    
+    # object_z_pos = 0.6
+    # default_object_pos = (0., -0.265, 0.6)  # is this affecting the ball position at all? cuz this is not changing anything in the viewer
+    # object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0., -0.265, 0.6)  )
 
     actuated_joint_names = ['rh_FFJ4', 'rh_MFJ4', 'rh_RFJ4', 'rh_THJ5', 'rh_FFJ3', 'rh_MFJ3', 'rh_RFJ3', 'rh_THJ4', 'rh_FFJ2', 'rh_MFJ2', 'rh_RFJ2', 'rh_FFJ1', 'rh_MFJ1', 'rh_RFJ1', 'rh_THJ2', 'rh_THJ1']
     num_actions = len(actuated_joint_names)

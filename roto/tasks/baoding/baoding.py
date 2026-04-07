@@ -17,6 +17,7 @@ from isaaclab.sim.schemas.schemas_cfg import CollisionPropertiesCfg
 from isaaclab.utils import configclass
 from isaaclab.utils.math import quat_apply, sample_uniform
 
+from roto.tasks.robots.shadowlite.shadowlite import ShadowLiteEnv, ShadowLiteEnvCfg
 from roto.tasks.robots.allegro.allegro import AllegroEnv, AllegroEnvCfg
 from roto.tasks.robots.orca.orca import OrcaEnv, OrcaEnvCfg
 from roto.tasks.robots.shadow.shadow import ShadowEnv, ShadowEnvCfg
@@ -146,6 +147,9 @@ class BaodingOrcaCfg(BaodingTaskCfg, OrcaEnvCfg):
 class BaodingAllegroCfg(BaodingTaskCfg, AllegroEnvCfg):
     """Baoding on the Allegro hand."""
 
+@configclass
+class BaodingShadowLiteCfg(BaodingTaskCfg, ShadowLiteEnvCfg):
+    """Baoding on the Allegro hand."""
 
 # --- Shared env logic --------------------------------------------------------
 
@@ -390,6 +394,17 @@ class BaodingAllegroEnv(BaodingMixin, BaodingPalmResetMixin, AllegroEnv):
     cfg: BaodingAllegroCfg
 
     def __init__(self, cfg: BaodingAllegroCfg, render_mode: str | None = None, **kwargs):
+        super().__init__(cfg, render_mode, **kwargs)
+        self.palm_idx = self.robot.body_names.index("palm_link")
+        self._init_baoding_state()
+
+
+class BaodingShadowLiteEnv(BaodingMixin, BaodingPalmResetMixin, ShadowLiteEnv):
+    """Baoding on the Allegro hand."""
+
+    cfg: BaodingShadowLiteCfg
+
+    def __init__(self, cfg: BaodingShadowLiteCfg, render_mode: str | None = None, **kwargs):
         super().__init__(cfg, render_mode, **kwargs)
         self.palm_idx = self.robot.body_names.index("palm_link")
         self._init_baoding_state()
