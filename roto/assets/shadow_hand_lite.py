@@ -25,6 +25,7 @@ from isaaclab.utils.assets import ISAAC_NUCLEUS_DIR
 # Configuration
 ##
 
+
 SHADOW_HAND_LITE_CFG = ArticulationCfg(
     spawn=sim_utils.UrdfFileCfg(
         asset_path=f"/home/ayush/Desktop/icra/Roto-on-ShadowLite/roto/assets/shadow_lite/sr_hand.urdf", #change path
@@ -92,3 +93,56 @@ SHADOW_HAND_LITE_CFG = ArticulationCfg(
     soft_joint_pos_limit_factor=1.0,
 )
 """Configuration of Shadow Hand robot."""
+# SHADOW_HAND_LITE_CFG = ArticulationCfg(
+#     spawn=sim_utils.UsdFileCfg(
+#         # Point to your local USD file
+#         usd_path="/home/ayush/Desktop/icra/Roto-on-ShadowLite/roto/assets/shadow_lite/sr_hand.usd",
+#         activate_contact_sensors=True,
+#         rigid_props=sim_utils.RigidBodyPropertiesCfg(
+#             disable_gravity=True,
+#             retain_accelerations=True,
+#             linear_damping=0.0,
+#             angular_damping=0.01,
+#             max_linear_velocity=1000.0,
+#             max_angular_velocity=1000.0,
+#             max_depenetration_velocity=1000.0,
+#             max_contact_impulse=1e32,
+#         ),
+#         articulation_props=sim_utils.ArticulationRootPropertiesCfg(
+#             enabled_self_collisions=True,
+#             solver_position_iteration_count=8,
+#             solver_velocity_iteration_count=0,
+#             sleep_threshold=0.005,
+#             stabilization_threshold=0.0005,
+#         ),
+#         collision_props=sim_utils.CollisionPropertiesCfg(contact_offset=0.005, rest_offset=0.0),
+#     ),
+#     init_state=ArticulationCfg.InitialStateCfg(
+#         pos=(0.0, 0.0, 0.5),
+#         rot=(0.0, 0.0, -0.7071, 0.7071),
+#         joint_pos={".*": 0.0},
+#     ),
+#     actuators={
+#         "fingers": ImplicitActuatorCfg(
+#             joint_names_expr=["rh_[MRF]FJ[1-4]", "rh_THJ[1245]"],
+#             effort_limit_sim={
+#                 "rh_[MRF]FJ1": 0.7245,
+#                 "rh_[MRF]FJ[23]": 0.9,
+#                 "rh_[MRF]FJ4": 0.9,
+#                 "rh_THJ5": 2.3722, 
+#                 "rh_THJ4": 1.45,
+#                 "rh_THJ[12]": 0.99,
+#             },
+#             stiffness={
+#                 "rh_[MRF]FJ[1-4]": 1.0,
+#                 "rh_THJ[1245]": 1.0,
+#             },
+#             damping={
+#                 "rh_[MRF]FJ[1-4]": 0.1,
+#                 "rh_THJ[1245]": 0.1,
+#             },
+#         ),
+#     },
+#     soft_joint_pos_limit_factor=1.0,
+# )
+# """Configuration of Shadow Hand robot."""

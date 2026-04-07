@@ -52,9 +52,8 @@ class ShadowLiteEnvCfg(RotoEnvCfg):
     robot_cfg: ArticulationCfg = SHADOW_HAND_LITE_CFG.replace(prim_path="/World/envs/env_.*/Robot").replace(
         init_state=ArticulationCfg.InitialStateCfg(
             pos=(0.0, 0.0, hand_height),
-            # rot=(0.7071, 0.7071, 0, 0),
-            rot=(0,0,0.7071, -0.7071),
-
+            #rot=(0.0, 0.0, -0.7071, 0.7071),
+            rot=(0.0, 0.0, -0.7933, 0.6087), # tilting (-15 degree) forward.
             joint_pos={".*": 0.0},
         )
     )

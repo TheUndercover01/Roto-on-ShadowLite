@@ -80,7 +80,7 @@ roto_sim_cfg = SimulationCfg(
 
 
 ### BOUNCE PHYSICS ###
-stress_ball_radius_m = 0.035
+stress_ball_radius_m = 0.035 #default 0.035 # 0.019 is 1.5 inches in diameter
 stress_ball_mass_g = 30
 tennis_ball_radius_m = 0.033
 tennis_ball_mass_g = 57

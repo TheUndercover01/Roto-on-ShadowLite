@@ -87,7 +87,7 @@ class BounceOrcaCfg(BounceTaskCfg, OrcaEnvCfg):
     fall_height = 0.3
     object_y_pos = 0.1
     object_z_pos = 0.6
-    default_object_pos = (0.23, 0.1, 0.6)
+    default_object_pos = (0.23, 0.1, 0.8)
     object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0.23, 0.1, 0.6))
 
 
@@ -106,11 +106,11 @@ class BounceAllegroCfg(BounceTaskCfg, AllegroEnvCfg):
 class BounceShadowLiteCfg(BounceTaskCfg, ShadowLiteEnvCfg):
     air_reward_coeff = 0.0
     
-    fall_height = 0.3          # tune to match your hand height
-    object_y_pos = 1.0         # tune to match palm facing direction
-    object_z_pos = 0.55
-    default_object_pos = (0.23, 0.1, 0.6)   # tune
-    object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0.1, 0.0, 0.55))
+    fall_height = 0.3          
+    object_y_pos = -0.28    
+    object_z_pos = 0.6
+    default_object_pos = (0., -0.265, 0.6)  # is this affecting the ball position at all? cuz this is not changing anything in the viewer
+    object_cfg: RigidObjectCfg = _make_bouncy_ball_cfg((0., -0.265, 0.6)  )
 # --- Shared logic ------------------------------------------------------------
 
 
