@@ -58,6 +58,31 @@ class ShadowLiteEnvCfg(RotoEnvCfg):
         )
     )
 
+    #+++++++++++++++++++++++++++++++++++++++++++++++++++++Baoding-specific overrides+++++++++++++++++++++++++++++++++++++++++++++++++++++
+    # tilting (-15 degree) forward. # finalized angle for hand rot=(0.0, 0.0, -0.7933, 0.6087)
+    # ball_mass_g = 20
+    # ball_reset_height = 0.46
+
+    # # ball size
+    # ball_diameter_inches = 1.1
+    # ball_radius_m = (ball_diameter_inches / 2) * 2.54 / 100
+    # ball_diameter_m = ball_radius_m * 2
+
+    # # initial ball positions
+    # ball_1_init_x = -0.03
+    # ball_1_init_y = -.2
+    # ball_2_init_x = 0.01
+    # ball_2_init_y = -0.22
+
+    # # target positions
+    # palm_target_x = 0
+    # palm_target_y = -0.25
+    # palm_target_z = 0.39
+
+    # target_offset = ball_diameter_m / 1.73205080757 + 0.001
+    # diagonal_target_x = palm_target_x - target_offset
+    # diagonal_target_y = palm_target_y + target_offset
+    # diagonal_target_z = palm_target_z + target_offset
     #=========================================BOUNCE SHADOWLITE =====================================================
     # tilting (-15 degree) forward. # finalized angle for hand rot=(0.0, 0.0, -0.7933, 0.6087)
     # fall_height = 0.3          

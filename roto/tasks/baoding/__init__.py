@@ -30,6 +30,7 @@ _ORCA_ALLEGRO_SHADOWLITE_VARIANT_FILES = {
     "default_cfg": "default.yaml",
     "rl_only_pt": "rl_only_pt.yaml",
     "forward_dynamics": "forward_dynamics.yaml",
+    "rl_only_ptg": "rl_only_ptg.yaml",
 }
 
 

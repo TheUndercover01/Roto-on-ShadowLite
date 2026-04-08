@@ -1,0 +1,72 @@
+@configclass
+class BaodingShadowLiteCfg(BaodingTaskCfg, ShadowLiteEnvCfg):
+    """Baoding on the ShadowLite hand."""
+
+    ball_reset_height = 0.46
+
+    # ball size
+    ball_diameter_inches = 1.3
+    ball_radius_m = (ball_diameter_inches / 2) * 2.54 / 100
+    ball_diameter_m = ball_radius_m * 2
+
+    # initial ball positions
+    ball_1_init_x = -0.03
+    ball_1_init_y = -.2
+    ball_2_init_x = 0.01
+    ball_2_init_y = -0.22
+
+    # target positions
+    palm_target_x = 0
+    palm_target_y = -0.25
+    palm_target_z = 0.39
+
+    target_offset = ball_diameter_m / 1.73205080757 + 0.001
+    diagonal_target_x = palm_target_x - target_offset
+    diagonal_target_y = palm_target_y + target_offset
+    diagonal_target_z = palm_target_z + target_offset
+
+
+BALL WEIGHT = 40 GM - did not hold the ball (returns less than 100 for over 125m steps). - did not get results in
+
+
+##############################################################################################
+
+
+bal weight = 55gm
+
+
+@configclass
+class BaodingShadowLiteCfg(BaodingTaskCfg, ShadowLiteEnvCfg):
+    """Baoding on the ShadowLite hand."""
+
+    ball_reset_height = 0.46
+
+    # ball size
+    ball_diameter_inches = 1.2
+    ball_radius_m = (ball_diameter_inches / 2) * 2.54 / 100
+    ball_diameter_m = ball_radius_m * 2
+
+    # initial ball positions
+    ball_1_init_x = -0.03
+    ball_1_init_y = -.2
+    ball_2_init_x = -0.01
+    ball_2_init_y = -0.24
+
+    # target positions
+    palm_target_x = 0
+    palm_target_y = -0.25
+    palm_target_z = 0.39
+
+    target_offset = ball_diameter_m / 1.73205080757 + 0.001
+    diagonal_target_x = palm_target_x - target_offset
+    diagonal_target_y = palm_target_y + target_offset
+    diagonal_target_z = palm_target_z + target_offset
+
+
+
+    joints position default
+
+
+BEST RESULTS SO FAR
+
+
